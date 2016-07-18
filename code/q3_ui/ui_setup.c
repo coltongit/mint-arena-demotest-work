@@ -129,7 +129,7 @@ static void UI_SetupMenu_Event( void *ptr, int event ) {
 		UI_PreferencesMenu();
 		break;
 		
-	(if !uis.demotestversion ) {
+	if( !uis.demotestversion ) {
 	case ID_LOAD:
 		UI_LoadConfigMenu();
 		break;
@@ -189,7 +189,7 @@ static void UI_SetupMenu_Init( void ) {
 	setupMenuInfo.framer.height  					= 334;
 
 	if( !trap_Cvar_VariableValue( "cl_paused" ) ) {
-		numItems = 5; // 7
+		numItems = 7;
 	} else {
 		numItems = 4;
 	}
@@ -202,8 +202,8 @@ static void UI_SetupMenu_Init( void ) {
 	setupMenuInfo.setupplayers.generic.id			= ID_CUSTOMIZEPLAYER;
 	setupMenuInfo.setupplayers.generic.callback		= UI_SetupMenu_Event; 
 	setupMenuInfo.setupplayers.string				= (UI_MaxSplitView() == 1) ? "PLAYER": "PLAYERS";
-	setupMenuInfo.setupplayers.color					= text_big_color;
-	setupMenuInfo.setupplayers.style					= UI_CENTER;
+	setupMenuInfo.setupplayers.color				= text_big_color;
+	setupMenuInfo.setupplayers.style				= UI_CENTER;
 
 	y += SETUP_MENU_VERTICAL_SPACING;
 	setupMenuInfo.setupcontrols.generic.type		= MTYPE_PTEXT;
@@ -211,7 +211,7 @@ static void UI_SetupMenu_Init( void ) {
 	setupMenuInfo.setupcontrols.generic.x			= 320;
 	setupMenuInfo.setupcontrols.generic.y			= y;
 	setupMenuInfo.setupcontrols.generic.id			= ID_CUSTOMIZECONTROLS;
-	setupMenuInfo.setupcontrols.generic.callback	= UI_SetupMenu_Event; 
+	setupMenuInfo.setupcontrols.generic.callback		= UI_SetupMenu_Event; 
 	setupMenuInfo.setupcontrols.string				= "CONTROLS";
 	setupMenuInfo.setupcontrols.color				= text_big_color;
 	setupMenuInfo.setupcontrols.style				= UI_CENTER;
@@ -228,18 +228,17 @@ static void UI_SetupMenu_Init( void ) {
 	setupMenuInfo.setupsystem.style					= UI_CENTER;
 
 	y += SETUP_MENU_VERTICAL_SPACING;
-	setupMenuInfo.game.generic.type					= MTYPE_PTEXT;
-	setupMenuInfo.game.generic.flags				= QMF_CENTER_JUSTIFY|QMF_PULSEIFFOCUS;
+	setupMenuInfo.game.generic.type				= MTYPE_PTEXT;
+	setupMenuInfo.game.generic.flags			= QMF_CENTER_JUSTIFY|QMF_PULSEIFFOCUS;
 	setupMenuInfo.game.generic.x					= 320;
 	setupMenuInfo.game.generic.y					= y;
-	setupMenuInfo.game.generic.id					= ID_GAME;
-	setupMenuInfo.game.generic.callback				= UI_SetupMenu_Event; 
-	setupMenuInfo.game.string						= "GAME OPTIONS";
-	setupMenuInfo.game.color						= text_big_color;
-	setupMenuInfo.game.style						= UI_CENTER;
+	setupMenuInfo.game.generic.id				= ID_GAME;
+	setupMenuInfo.game.generic.callback			= UI_SetupMenu_Event; 
+	setupMenuInfo.game.string					= "GAME OPTIONS";
+	setupMenuInfo.game.color					= text_big_color;
+	setupMenuInfo.game.style					= UI_CENTER;
 
 	if( !uis.demotestversion && !trap_Cvar_VariableValue( "cl_paused" ) ) {
-#if 0
 		y += SETUP_MENU_VERTICAL_SPACING;
 		setupMenuInfo.load.generic.type					= MTYPE_PTEXT;
 		setupMenuInfo.load.generic.flags				= QMF_CENTER_JUSTIFY|QMF_PULSEIFFOCUS;
@@ -261,8 +260,18 @@ static void UI_SetupMenu_Init( void ) {
 		setupMenuInfo.save.string						= "SAVE";
 		setupMenuInfo.save.color						= text_big_color;
 		setupMenuInfo.save.style						= UI_CENTER;
-#endif
 
+		y += SETUP_MENU_VERTICAL_SPACING;
+		setupMenuInfo.defaults.generic.type				= MTYPE_PTEXT;
+		setupMenuInfo.defaults.generic.flags			= QMF_CENTER_JUSTIFY|QMF_PULSEIFFOCUS;
+		setupMenuInfo.defaults.generic.x				= 320;
+		setupMenuInfo.defaults.generic.y				= y;
+		setupMenuInfo.defaults.generic.id				= ID_DEFAULTS;
+		setupMenuInfo.defaults.generic.callback			= UI_SetupMenu_Event; 
+		setupMenuInfo.defaults.string					= "DEFAULTS";
+		setupMenuInfo.defaults.color					= text_big_color;
+		setupMenuInfo.defaults.style					= UI_CENTER;
+	} else if( !trap_Cvar_VariableValue( "cl_paused" ) ) {
 		y += SETUP_MENU_VERTICAL_SPACING;
 		setupMenuInfo.defaults.generic.type				= MTYPE_PTEXT;
 		setupMenuInfo.defaults.generic.flags			= QMF_CENTER_JUSTIFY|QMF_PULSEIFFOCUS;
