@@ -196,9 +196,9 @@ static void UI_SetupMenu_Init( void ) {
 
 	y = (SCREEN_HEIGHT - numItems*SETUP_MENU_VERTICAL_SPACING) / 2;
 	setupMenuInfo.setupplayers.generic.type			= MTYPE_PTEXT;
-	setupMenuInfo.setupplayers.generic.flags			= QMF_CENTER_JUSTIFY|QMF_PULSEIFFOCUS;
-	setupMenuInfo.setupplayers.generic.x				= 320;
-	setupMenuInfo.setupplayers.generic.y				= y;
+	setupMenuInfo.setupplayers.generic.flags		= QMF_CENTER_JUSTIFY|QMF_PULSEIFFOCUS;
+	setupMenuInfo.setupplayers.generic.x			= 320;
+	setupMenuInfo.setupplayers.generic.y			= y;
 	setupMenuInfo.setupplayers.generic.id			= ID_CUSTOMIZEPLAYER;
 	setupMenuInfo.setupplayers.generic.callback		= UI_SetupMenu_Event; 
 	setupMenuInfo.setupplayers.string				= (UI_MaxSplitView() == 1) ? "PLAYER": "PLAYERS";
@@ -219,8 +219,8 @@ static void UI_SetupMenu_Init( void ) {
 	y += SETUP_MENU_VERTICAL_SPACING;
 	setupMenuInfo.setupsystem.generic.type			= MTYPE_PTEXT;
 	setupMenuInfo.setupsystem.generic.flags			= QMF_CENTER_JUSTIFY|QMF_PULSEIFFOCUS;
-	setupMenuInfo.setupsystem.generic.x				= 320;
-	setupMenuInfo.setupsystem.generic.y				= y;
+	setupMenuInfo.setupsystem.generic.x			= 320;
+	setupMenuInfo.setupsystem.generic.y			= y;
 	setupMenuInfo.setupsystem.generic.id			= ID_SYSTEMCONFIG;
 	setupMenuInfo.setupsystem.generic.callback		= UI_SetupMenu_Event; 
 	setupMenuInfo.setupsystem.string				= "SYSTEM";
@@ -230,8 +230,8 @@ static void UI_SetupMenu_Init( void ) {
 	y += SETUP_MENU_VERTICAL_SPACING;
 	setupMenuInfo.game.generic.type				= MTYPE_PTEXT;
 	setupMenuInfo.game.generic.flags			= QMF_CENTER_JUSTIFY|QMF_PULSEIFFOCUS;
-	setupMenuInfo.game.generic.x					= 320;
-	setupMenuInfo.game.generic.y					= y;
+	setupMenuInfo.game.generic.x				= 320;
+	setupMenuInfo.game.generic.y				= y;
 	setupMenuInfo.game.generic.id				= ID_GAME;
 	setupMenuInfo.game.generic.callback			= UI_SetupMenu_Event; 
 	setupMenuInfo.game.string					= "GAME OPTIONS";
@@ -263,25 +263,25 @@ static void UI_SetupMenu_Init( void ) {
 
 		y += SETUP_MENU_VERTICAL_SPACING;
 		setupMenuInfo.defaults.generic.type				= MTYPE_PTEXT;
-		setupMenuInfo.defaults.generic.flags			= QMF_CENTER_JUSTIFY|QMF_PULSEIFFOCUS;
+		setupMenuInfo.defaults.generic.flags				= QMF_CENTER_JUSTIFY|QMF_PULSEIFFOCUS;
 		setupMenuInfo.defaults.generic.x				= 320;
 		setupMenuInfo.defaults.generic.y				= y;
 		setupMenuInfo.defaults.generic.id				= ID_DEFAULTS;
-		setupMenuInfo.defaults.generic.callback			= UI_SetupMenu_Event; 
-		setupMenuInfo.defaults.string					= "DEFAULTS";
-		setupMenuInfo.defaults.color					= text_big_color;
-		setupMenuInfo.defaults.style					= UI_CENTER;
+		setupMenuInfo.defaults.generic.callback				= UI_SetupMenu_Event; 
+		setupMenuInfo.defaults.string						= "DEFAULTS";
+		setupMenuInfo.defaults.color						= text_big_color;
+		setupMenuInfo.defaults.style						= UI_CENTER;
 	} else if( !trap_Cvar_VariableValue( "cl_paused" ) ) {
 		y += SETUP_MENU_VERTICAL_SPACING;
 		setupMenuInfo.defaults.generic.type				= MTYPE_PTEXT;
-		setupMenuInfo.defaults.generic.flags			= QMF_CENTER_JUSTIFY|QMF_PULSEIFFOCUS;
+		setupMenuInfo.defaults.generic.flags				= QMF_CENTER_JUSTIFY|QMF_PULSEIFFOCUS;
 		setupMenuInfo.defaults.generic.x				= 320;
 		setupMenuInfo.defaults.generic.y				= y;
 		setupMenuInfo.defaults.generic.id				= ID_DEFAULTS;
-		setupMenuInfo.defaults.generic.callback			= UI_SetupMenu_Event; 
-		setupMenuInfo.defaults.string					= "DEFAULTS";
-		setupMenuInfo.defaults.color					= text_big_color;
-		setupMenuInfo.defaults.style					= UI_CENTER;
+		setupMenuInfo.defaults.generic.callback				= UI_SetupMenu_Event; 
+		setupMenuInfo.defaults.string						= "DEFAULTS";
+		setupMenuInfo.defaults.color						= text_big_color;
+		setupMenuInfo.defaults.style						= UI_CENTER;
 	}
 
 	setupMenuInfo.back.generic.type					= MTYPE_BITMAP;
