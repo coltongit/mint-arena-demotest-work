@@ -67,8 +67,8 @@ typedef struct {
 	menutext_s		setupcontrols;
 	menutext_s		setupsystem;
 	menutext_s		game;
-//	menutext_s		load;
-//	menutext_s		save;
+	menutext_s		load;
+	menutext_s		save;
 	menutext_s		defaults;
 	menubitmap_s	back;
 } setupMenuInfo_t;
